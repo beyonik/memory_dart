@@ -7,35 +7,19 @@ void main(List<String> arguments) {
   final process = MemoryProcess("Spotify.exe");
   if (!process.isValid) return;
   final tokenAddress = process.find(
-        [
-          0x61,
-          0x75,
-          0x74,
-          0x68,
-          0x6F,
-          0x72,
-          0x69,
-          0x7A,
-          0x61,
-          0x74,
-          0x69,
-          0x6F,
-          0x6E,
-          0x00,
-          0x00,
-          0x00,
-          0x8A,
-          0x01,
-          0x00,
-          0x00,
-          0x82,
-          0x01,
-          0x00,
-          0x00
-        ],
-        stopAtFirst: true,
-      )[0] +
-      24;
+    [
+      0x42,
+      0x65,
+      0x61,
+      0x72,
+      0x65,
+      0x72,
+      0x20,
+    ],
+    stopAtFirst: true,
+    startAddress: 0x20000000,
+  )[0];
+  print(tokenAddress.toRadixString(16));
   final token = process.readString(tokenAddress, 386);
   print(token);
   final trackIdAddress = process.find_in_module(

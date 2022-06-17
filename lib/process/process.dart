@@ -16,6 +16,8 @@ class MemoryProcess {
       _processHandle != 0 &&
       GenericFFI.GetExitCodeProcess(_processHandle) == 259; // STILL_ACTIVE
 
+  MemoryProcess.placeholder();
+
   MemoryProcess(String procName) {
     ProcessEnumerator.enumerate(
       (name, pid) => name == procName ? _pid = pid : null,
