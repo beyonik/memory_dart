@@ -44,7 +44,7 @@ class MemoryProcess {
   List<int> readBytes(int address, int numberOfBytes) =>
       MemoryAccess.ReadMemory(this, address, numberOfBytes);
 
-  String readString(int address, int length) => readBytes(address, length)
+  String readString(int address, int length) => readBytes(address, length + 1)
       .map((byte) => String.fromCharCode(byte))
       .join();
 
