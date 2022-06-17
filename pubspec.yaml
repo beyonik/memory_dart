@@ -1,5 +1,5 @@
 name: memory_dart
-version: 1.0.2
+version: 1.0.3
 
 environment:
   sdk: '>=2.16.2 <3.0.0'

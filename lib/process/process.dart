@@ -46,7 +46,8 @@ class MemoryProcess {
 
   String readString(int address, int length) => readBytes(address, length + 1)
       .map((byte) => String.fromCharCode(byte))
-      .join();
+      .join()
+      .split("\u0000")[0];
 
   List<int> find_in_module(String module, List<int> bytes,
       {bool stopAtFirst = false}) {
